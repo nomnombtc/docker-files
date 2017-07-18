@@ -18,7 +18,7 @@ RUN sbopkg -e stop -Bi protobuf
 
 ENV GIT_BRANCH segwit2x
 ENV GIT_GPG_KEY 651EA65291BFDB26
-ENV GIT_VERIFY_COMMIT 38b970f722d1bcc473a08d29503e303d921d2e18
+ENV GIT_VERIFY_COMMIT 5bfae039f72fc5ee782cde929820ce847c61131f
 
 RUN gpg --recv-key $GIT_GPG_KEY && \
   git clone https://github.com/btc1/bitcoin.git -b $GIT_BRANCH && \
