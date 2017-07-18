@@ -17,8 +17,8 @@ RUN sbopkg -e stop -Bi six && \
   sbopkg -e stop -Bi protobuf && \
   useradd -s /bin/bash -m -d /bitcoin bitcoin
 
-ENV BU_VERSION 1.0.2.0
-ENV BU_SHA256 707169ec08b6c14ba37501e54e6f6925af7bb9474b2cae6d7d8176a86d86e571
+ENV BU_VERSION 1.0.3.0
+ENV BU_SHA256 27f4d0b6c2148aefd981479f15d950f58709a42639a9ebf8cefee80b6a82ec0a
 
 RUN wget https://github.com/BitcoinUnlimited/BitcoinUnlimited/archive/v$BU_VERSION/BitcoinUnlimited-$BU_VERSION.tar.gz && \
   echo "$BU_SHA256 BitcoinUnlimited-$BU_VERSION.tar.gz" | sha256sum -c || exit 1 && \
