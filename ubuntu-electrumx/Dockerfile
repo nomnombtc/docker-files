@@ -1,4 +1,4 @@
-FROM ubuntu:zesty
+FROM ubuntu:artful
 MAINTAINER nnb <nomnombtc@arcor.de>
 
 RUN apt-get update && apt-get install -y \
