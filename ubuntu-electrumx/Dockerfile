@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y \
   python3.6 libleveldb-dev librocksdb-dev libsnappy-dev libbz2-dev libzip-dev \
   python3-setuptools python3-aiohttp python3-pip python3-openssl git \
   python3.6-dev libxml2-dev libxslt-dev daemontools && \
-  python3.6 -m pip install plyvel pyrocksdb irc pylru uvloop
+  python3.6 -m pip install plyvel pyrocksdb irc pylru uvloop 'aiorpcX>=0.10.1,<0.11' attrs
 
 RUN groupadd -r -g 234 electrum && useradd -r -u 234 -g electrum electrum && \
   mkdir /var/lib/electrumx && chown electrum.electrum /var/lib/electrumx && \
