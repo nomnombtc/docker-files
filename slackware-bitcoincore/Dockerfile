@@ -19,10 +19,10 @@ RUN sbopkg -e stop -Bi six && \
   sbopkg -e stop -Bi pytz && \
   sbopkg -e stop -Bi zeromq
 
-ENV CORE_VER 0.16.3
+ENV CORE_VER 0.17.1
 #laanwj key
 ENV GPG_KEY 90C8019E36C2E964
-ENV PKG_SHA256 836eed97dfc79cff09f356e8fbd6a6ef2de840fb9ff20ebffb51ccffdb100218
+ENV PKG_SHA256 3e564fb5cf832f39e930e19c83ea53e09cfe6f93a663294ed83a32e194bda42a
 
 RUN gpg --recv-key $GPG_KEY && \
   wget https://bitcoincore.org/bin/bitcoin-core-${CORE_VER}/bitcoin-${CORE_VER}.tar.gz && \
