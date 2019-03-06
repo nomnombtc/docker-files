@@ -1,16 +1,18 @@
-FROM ubuntu:artful
+FROM ubuntu:disco
 MAINTAINER nnb <nomnombtc@arcor.de>
 
 RUN apt-get update && apt-get install -y \
-  python3.6 libleveldb-dev librocksdb-dev libsnappy-dev libbz2-dev libzip-dev \
-  python3-setuptools python3-aiohttp python3-pip python3-openssl git \
-  python3.6-dev libxml2-dev libxslt-dev daemontools && \
-  python3.6 -m pip install plyvel pyrocksdb irc pylru uvloop 'aiorpcX>=0.10.1,<0.11' attrs
+  python3.7 libleveldb-dev librocksdb-dev libsnappy-dev libbz2-dev liblz4-dev \
+  libzip-dev python3-setuptools python3-pip python3-openssl git python3.7-dev \
+  libxml2-dev libxslt-dev daemontools
+
+RUN python3.7 -m pip install plyvel python-rocksdb pylru uvloop \
+  'aiorpcX>=0.10.4,<0.11' attrs 'aiohttp >= 2'
 
 RUN groupadd -r -g 234 electrum && useradd -r -u 234 -g electrum electrum && \
   mkdir /var/lib/electrumx && chown electrum.electrum /var/lib/electrumx && \
   git clone https://github.com/kyuupichan/electrumx.git && \
-  update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
+  update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 1
 
 USER electrum
 WORKDIR /electrumx/daemontools
