@@ -6,8 +6,8 @@ RUN apt-get update && apt-get install -y \
   libzip-dev python3-setuptools python3-pip python3-openssl git python3.7-dev \
   libxml2-dev libxslt-dev daemontools
 
-RUN python3.7 -m pip install plyvel python-rocksdb pylru uvloop \
-  'aiorpcX>=0.10.4,<0.11' attrs 'aiohttp >= 2'
+RUN python3.7 -m pip install plyvel 'python-rocksdb>=0.6.9' pylru \
+  'aiorpcX>=0.17.0,<0.18' attrs 'aiohttp>=3.3' 'uvloop>=0.12.2'
 
 RUN groupadd -r -g 234 electrum && useradd -r -u 234 -g electrum electrum && \
   mkdir /var/lib/electrumx && chown electrum.electrum /var/lib/electrumx && \
