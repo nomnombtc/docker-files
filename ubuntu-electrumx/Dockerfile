@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
   libxml2-dev libxslt-dev daemontools
 
 RUN python3.7 -m pip install plyvel 'python-rocksdb>=0.6.9' pylru \
-  'aiorpcX>=0.17.0,<0.18' attrs 'aiohttp>=3.3' 'uvloop>=0.12.2'
+  'aiorpcX[ws]>=0.18.1,<0.19' attrs 'aiohttp>=3.3' 'uvloop>=0.12.2'
 
 RUN groupadd -r -g 234 electrum && useradd -r -u 234 -g electrum electrum && \
   mkdir /var/lib/electrumx && chown electrum.electrum /var/lib/electrumx && \
