@@ -1,5 +1,8 @@
-FROM ubuntu:eoan
+FROM ubuntu:focal
 MAINTAINER nnb <nomnombtc@arcor.de>
+
+ENV TZ=Europe/Berlin
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update && apt-get install -y \
   python3 libleveldb-dev librocksdb-dev libsnappy-dev libbz2-dev liblz4-dev \
