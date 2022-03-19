@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
   libxml2-dev libxslt-dev daemontools cython cython3
 
 RUN python3 -m pip install plyvel 'python-rocksdb>=0.6.9' pylru \
-  'aiorpcX[ws]>=0.18.3,<0.19' attrs 'aiohttp>=3.3' 'uvloop>=0.14.0'
+  'aiorpcX[ws]>=0.22.0,<0.23' attrs 'aiohttp>=3.3,<4' 'uvloop>=0.14'
 
 RUN groupadd -r -g 234 electrum && useradd -r -u 234 -g electrum electrum && \
   mkdir /var/lib/electrumx && chown electrum.electrum /var/lib/electrumx && \
